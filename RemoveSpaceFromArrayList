@@ -1,1 +1,39 @@
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+
+public class RemoveSpaceFromArrayString {
+	
+	public static void main(String[] args) {
+		
+		String[] arrayString = {"myhanh", " ", "Tommy", " ", "Travis", " ", " ", "Tyler"};
+		System.out.println("Before remove: " );
+		printStringArray(arrayString);
+		System.out.println("\nAfter remove: ");
+		printStringArray(RemoveSpaceFromStringArray(arrayString));
+	
+	}
+	
+	public static String[] RemoveSpaceFromStringArray(String[] arrayString) {
+		
+		// Convert String[] to ArrayList
+		ArrayList<String> arrayList = new ArrayList<String>(Arrays.asList(arrayString));
+		Iterator<String> itr = arrayList.iterator();
+		while (itr.hasNext()) {
+			String itemString = itr.next();
+			if (itemString.equals(" "))
+				itr.remove();
+		}
+		
+		return arrayList.toArray(new String[arrayList.size()]);
+	}
+	
+	public static void printStringArray(String[] arrayString) {
+		
+		for (String item : arrayString) {
+			System.out.print(item);
+		}
+	}
+
+}
