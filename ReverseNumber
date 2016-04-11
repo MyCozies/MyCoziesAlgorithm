@@ -1,0 +1,33 @@
+public class ReverseNumber {
+	
+	public static void main(String[] args) {
+		
+		int number = -1234005;
+		System.out.println("Before reverse: " + number);
+		System.out.println("After reverse: " + reverseNumber(number));
+	}
+	
+	// number % 10 = reminder
+	// number / 10 = quotient
+	public static int reverseNumber(int number) {
+		
+		int reminder, quotient;
+		int reversed = 0;
+		boolean negativeFlag = false;
+		// if number is negative, convert to positive
+		if (number < 0) {
+			number = - number;
+			negativeFlag = true;
+		}
+		quotient = reminder = number;
+		while (quotient > 0) {
+			reminder = quotient % 10;
+			quotient = quotient / 10;
+			reversed = reminder + (reversed * 10);	
+		}
+		
+		return (negativeFlag == true ? -reversed : reversed);
+	
+	}
+
+}
